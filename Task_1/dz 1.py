@@ -20,5 +20,5 @@ def total_salary(path):
         print(f"File '{path}' not found.")
         return None
    
-total_salary, average_salary = total_salary("salary_file.txt")
+total_salary, average_salary = total_salary("Task_1/salary_file.txt")
 print(f"Загальна сума заробітної плати: {total_salary}, Середня заробітна плата: {average_salary}")
