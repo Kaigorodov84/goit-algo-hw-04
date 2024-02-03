@@ -8,20 +8,13 @@ def parse_input(user_input):
     cmd = cmd.strip().lower()
     return cmd, *args
 
-def change_username_phone(command, contacts):
-    command_parts = command.split() #розділ команди на слова
-    if len (command_parts) != 3: # перевірка чи достатньо символів  
-        return "Invalid command. U: change username phone"
-    #витягуєм нове ім'я та номер телефону 
-    username = command_parts[1]
-    new_phone = command_parts[2]
-    #перевіряєм чи контакт існує в списку
+def change_contact_phone(username, new_phone, contacts):
     if username in contacts:
-        contacts[username] = new_phone 
+        contacts[username] = new_phone
         return f"Phone number for {username} changed to {new_phone}."
     else:
         return f"Contact {username} not found in the contacts list."
-    
+
 def all_contacts(contacts):
     # Перевірити, чи є контакти для відображення
     if not contacts:
@@ -30,4 +23,9 @@ def all_contacts(contacts):
     print("All contacts:")
     for name, phone_number in contacts.items():
         print(f"{name}: {phone_number}")
-        
+
+def get_phone_by_username(username, contacts):
+    if username in contacts:
+        return f"The phone number for {username} is {contacts[username]}."
+    else:
+        return f"Contact {username} not found in the contacts list."
